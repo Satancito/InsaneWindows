@@ -1,5 +1,7 @@
 ﻿#pragma warning(disable:4251)
 #include <Insane/InsaneCryptography.h>
+#include <Insane/InsaneCore.h>
+#include <Insane/InsaneTest.h>
 
 
 #include <iostream>
@@ -8,43 +10,12 @@
 #include <unicode/ucsdet.h>
 #include <unicode/locid.h>
 #include <unicode/ucnv.h>
-
-class Base
-{
-public:
-	virtual int X() const = 0;
-};
-
-class Derived : public Base
-{
-public:
-	virtual int X() const override {
-		return 100;
-	}
-};
-
-class Utility {
-public:
-	Utility(const Base& base) : _Base(base)
-	{
-
-	}
-
-	const Base& GetBase() const
-	{
-		return _Base;
-	}
-private:
-	const Base& _Base;
-};
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
+#include <rapidjson/document.h>
 
 int main()
 {
-	/*Derived derived = Derived();
-	Utility util = Utility(derived);
-	auto z = util.GetBase().X();
-	std::cout << z << std::endl;
-	return 0;*/
 
 	USING_NS_INSANE_CORE;
 	USING_NS_INSANE_STR;
@@ -548,11 +519,81 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 //            std::cout << "Decrypted: " + decrypted << std::endl;
 //        }
 
-	ShaHasher hasher = ShaHasher(HashAlgorithm::Sha512, Base64Encoder::DefaultInstance());
+	/*ShaHasher hasher = ShaHasher(HashAlgorithm::Sha512, Base64Encoder::DefaultInstance());
+	ShaHasher hasher2 = ShaHasher(hasher);
 	std::cout << hasher.Serialize() << std::endl << std::endl;
-	std::cout << hasher.GetEncoder()->Serialize() << std::endl;
+	std::cout << hasher2.Serialize() << std::endl << std::endl;
+	auto hasherPtr = hasher.Deserialize(hasher.Serialize());
 
-	//std::cout << Base64Encoder::DefaultInstance()->Serialize() << std::endl << std::endl;
+	std::cout << hasherPtr->Serialize() << std::endl << std::endl;
+	std::cout << hasherPtr->ComputeEncoded("grape") << std::endl;
+	String computed = hasherPtr->ComputeEncoded("grape");
+	std::cout << hasherPtr->VerifyEncoded("grape", computed) << std::endl;*/
+	/*CryptoException ex = CryptoException(INSANE_FUNCTION_SIGNATURE, __FILE__, __LINE__, "Invalid header.", 0);
+	SerializeException serializeEx = SerializeException(INSANE_FUNCTION_SIGNATURE, __FILE__, __LINE__, "Invalid json.", 0);
+	CryptoException ex2 = CryptoException(ex);
+	CryptoException exAll = CryptoException(INSANE_FUNCTION_SIGNATURE, __FILE__, __LINE__, "Invalid header.", 0, serializeEx.Clone());
+
+	std::cout << exAll.GetStackTrace("MiTag") << std::endl;
+	auto ex3 = ex.Clone();*/
+
+	//HexEncoder he = HexEncoder();
+	//HexEncoder he2 = HexEncoder(he);
+	//std::cout << he2.Serialize() << std::endl;
+
+	//Base32Encoder b32 = Base32Encoder();
+	//Base32Encoder b322 = Base32Encoder(b32);
+	//std::cout << b322.Serialize() << std::endl;
+
+	//Base64Encoder b64 = Base64Encoder();
+	//Base64Encoder b642 = Base64Encoder(b64);
+	//std::cout << b642.Serialize() << std::endl;
+	USING_NS_INSANE_CORE;
+
+	bool indent = true;
+	String hashKeyOrSecret = "\000\001\100😀"s;
+	String serializeKey = "HolaMundo"s;
+	String encryptorKey = "HelloWorld";
+	std::unique_ptr<IEncoder> encoderx = Base32Encoder::DefaultInstance();
+	HashAlgorithm hashAlgorithm = HashAlgorithm::Sha512;
+	String datax = "grape";
+
+	ShaHasher shaHasher{ hashAlgorithm, encoderx->Clone() };
+	auto shaHasher2 = ShaHasher::Deserialize(shaHasher.Serialize(indent));
+	std::cout << shaHasher.Serialize(indent) << std::endl;
+	std::cout << shaHasher2->Serialize(indent) << std::endl;
+	std::cout << shaHasher.ComputeEncoded(datax) << std::endl;
+	std::cout << shaHasher2->ComputeEncoded(datax) << std::endl;
+
+	HmacHasher hmacHasher{ hashKeyOrSecret, hashAlgorithm, encoderx->Clone() };
+	auto hmacHasher2 = HmacHasher::Deserialize(hmacHasher.Serialize(indent));
+	std::cout << hmacHasher.Serialize(indent) << std::endl;
+	std::cout << hmacHasher2->Serialize(indent) << std::endl;
+	std::cout << hmacHasher.ComputeEncoded(datax) << std::endl;
+	std::cout << hmacHasher2->ComputeEncoded(datax) << std::endl;
+
+	Argon2Hasher argon2Hasher{ hashKeyOrSecret,2,16384,4,Argon2Variant::Argon2i,64,encoderx->Clone() };
+	auto argon2Hasher2 = Argon2Hasher::Deserialize(argon2Hasher.Serialize(indent));
+	std::cout << argon2Hasher.Serialize(indent) << std::endl;
+	std::cout << argon2Hasher2->Serialize(indent) << std::endl;
+	std::cout << argon2Hasher.ComputeEncoded(datax) << std::endl;
+	std::cout << argon2Hasher2->ComputeEncoded(datax) << std::endl;
+
+	ScryptHasher ScryptHasher{ hashKeyOrSecret,16384,8,1,64, encoderx->Clone()};
+	auto ScryptHasher2 = ScryptHasher::Deserialize(ScryptHasher.Serialize(indent));
+	std::cout << ScryptHasher.Serialize(indent) << std::endl;
+	std::cout << ScryptHasher2->Serialize(indent) << std::endl;
+	std::cout << ScryptHasher.ComputeEncoded(datax) << std::endl;
+	std::cout << ScryptHasher2->ComputeEncoded(datax) << std::endl;
+
+	AesCbcEncryptor aesCbcEncryptor{ encryptorKey, AesCbcPadding::AnsiX923, encoderx->Clone()};
+	std::unique_ptr<IEncryptor> aesCbcEncryptor2 = AesCbcEncryptor::Deserialize(aesCbcEncryptor.Serialize(serializeKey), serializeKey);
+	std::cout << aesCbcEncryptor.Serialize(serializeKey, indent) << std::endl;
+	std::cout << aesCbcEncryptor2->Serialize(serializeKey, indent) << std::endl;
+	std::cout << aesCbcEncryptor.Decrypt(aesCbcEncryptor.Encrypt(datax)) << std::endl;
+	std::cout << aesCbcEncryptor.DecryptEncoded(aesCbcEncryptor.EncryptEncoded(datax)) << std::endl;
+	std::cout << aesCbcEncryptor2->Decrypt(aesCbcEncryptor2->Encrypt(datax)) << std::endl;
+	std::cout << aesCbcEncryptor2->DecryptEncoded(aesCbcEncryptor2->EncryptEncoded(datax)) << std::endl;
 	std::cin.get();
 }
 
