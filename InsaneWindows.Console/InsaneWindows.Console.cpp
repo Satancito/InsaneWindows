@@ -554,7 +554,7 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	String hashKeyOrSecret = "\000\001\100😀"s;
 	String serializeKey = "HolaMundo"s;
 	String encryptorKey = "HelloWorld";
-	std::unique_ptr<IEncoder> encoderx = Base32Encoder::DefaultInstance();
+	std::unique_ptr<IEncoder> encoderx = Base64Encoder::DefaultInstance();
 	HashAlgorithm hashAlgorithm = HashAlgorithm::Sha512;
 	String datax = "grape";
 
@@ -594,6 +594,17 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	std::cout << aesCbcEncryptor.DecryptEncoded(aesCbcEncryptor.EncryptEncoded(datax)) << std::endl;
 	std::cout << aesCbcEncryptor2->Decrypt(aesCbcEncryptor2->Encrypt(datax)) << std::endl;
 	std::cout << aesCbcEncryptor2->DecryptEncoded(aesCbcEncryptor2->EncryptEncoded(datax)) << std::endl;
+
+	RsaEncryptor rsaEncryptor{ keypair, RsaPadding::OaepSha512, encoderx->Clone() };
+	std::unique_ptr<IEncryptor> rsaEncryptor2 = RsaEncryptor::Deserialize(rsaEncryptor.Serialize(serializeKey), serializeKey);
+	std::cout << rsaEncryptor.Serialize(serializeKey, indent) << std::endl;
+	std::cout << rsaEncryptor2->Serialize(serializeKey, indent) << std::endl;
+	std::cout << rsaEncryptor.Decrypt(rsaEncryptor.Encrypt(datax)) << std::endl;
+	std::cout << rsaEncryptor.DecryptEncoded(rsaEncryptor.EncryptEncoded(datax)) << std::endl;
+	std::cout << rsaEncryptor2->Decrypt(rsaEncryptor2->Encrypt(datax)) << std::endl;
+	std::cout << rsaEncryptor2->DecryptEncoded(rsaEncryptor2->EncryptEncoded(datax)) << std::endl;
+
+
 	std::cin.get();
 }
 
