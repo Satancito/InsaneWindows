@@ -595,6 +595,7 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	std::cout << aesCbcEncryptor2->Decrypt(aesCbcEncryptor2->Encrypt(datax)) << std::endl;
 	std::cout << aesCbcEncryptor2->DecryptEncoded(aesCbcEncryptor2->EncryptEncoded(datax)) << std::endl;
 
+
 	RsaEncryptor rsaEncryptor{ keypair, RsaPadding::OaepSha512, encoderx->Clone() };
 	std::unique_ptr<IEncryptor> rsaEncryptor2 = RsaEncryptor::Deserialize(rsaEncryptor.Serialize(serializeKey), serializeKey);
 	std::cout << rsaEncryptor.Serialize(serializeKey, indent) << std::endl;
