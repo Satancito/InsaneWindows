@@ -22,18 +22,7 @@ int main()
 	USING_NS_INSANE_CRYPTO;
 	USING_NS_INSANE_EXCEPTION;
 	SetConsoleOutputCP(CP_UTF8);
-	String json = R"(
-{
-    "Name": "Base64Encoder",
-    "LineBreaksLength": 255,
-    "RemovePadding": true,
-    "EncodingType": 0,
-	"ToUpper": true,
-	"ToLower": true
-}
-)";
 
-	std::unique_ptr<IEncoder> encoder = Base64Encoder::Deserialize(json);
 
 
 	String publickey = R"(
@@ -555,7 +544,7 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	String serializeKey = "HolaMundo"s;
 	String encryptorKey = "HelloWorld";
 	std::unique_ptr<IEncoder> encoderx = Base64Encoder::DefaultInstance();
-	HashAlgorithm hashAlgorithm = HashAlgorithm::Sha512;
+	HashAlgorithm hashAlgorithm = HashAlgorithm::Md5;
 	String datax = "grape";
 
 	ShaHasher shaHasher{ hashAlgorithm, encoderx->Clone() };
@@ -605,6 +594,9 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	std::cout << rsaEncryptor2->Decrypt(rsaEncryptor2->Encrypt(datax)) << std::endl;
 	std::cout << rsaEncryptor2->DecryptEncoded(rsaEncryptor2->EncryptEncoded(datax)) << std::endl;
 
+	CryptoTests::HexEncodingExtensionsTests(false);
+	CryptoTests::Base32EncodingExtensionsTests(false);
+	CryptoTests::Base64EncodingExtensionsTests(false);
 
 	std::cin.get();
 }

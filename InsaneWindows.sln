@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InsaneWindows.Console", "InsaneWindows.Console\InsaneWindows.Console.vcxproj", "{CCE179B1-449C-4003-82CD-FE2F6AC05EEE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Insane.Console.Play", "Insane.Console.Play\Insane.Console.Play.vcxproj", "{CCE179B1-449C-4003-82CD-FE2F6AC05EEE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InsaneCpp", "InsaneCpp\InsaneCpp.vcxitems", "{70E5AB4B-868D-4B43-B161-9F6130A5018D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Insane", "Insane\Insane.vcxproj", "{551366D7-2636-4EB8-857E-C78C6FC9EB6E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Insane.Console.Import", "Insane.Console.Import\Insane.Console.Import.vcxproj", "{D4603006-D0F4-4A97-8732-4A9399978F60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{020453A0-BAFC-4270-9715-3B668B644CB0}"
+	ProjectSection(SolutionItems) = preProject
+		RebuildAll.ps1 = RebuildAll.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,15 +30,27 @@ Global
 		{CCE179B1-449C-4003-82CD-FE2F6AC05EEE}.Release|x64.Build.0 = Release|x64
 		{CCE179B1-449C-4003-82CD-FE2F6AC05EEE}.Release|x86.ActiveCfg = Release|Win32
 		{CCE179B1-449C-4003-82CD-FE2F6AC05EEE}.Release|x86.Build.0 = Release|Win32
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Debug|x64.ActiveCfg = Debug|x64
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Debug|x64.Build.0 = Debug|x64
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Debug|x86.ActiveCfg = Debug|Win32
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Debug|x86.Build.0 = Debug|Win32
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Release|x64.ActiveCfg = Release|x64
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Release|x64.Build.0 = Release|x64
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Release|x86.ActiveCfg = Release|Win32
+		{551366D7-2636-4EB8-857E-C78C6FC9EB6E}.Release|x86.Build.0 = Release|Win32
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Debug|x64.ActiveCfg = Debug|x64
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Debug|x64.Build.0 = Debug|x64
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Debug|x86.ActiveCfg = Debug|Win32
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Debug|x86.Build.0 = Debug|Win32
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Release|x64.ActiveCfg = Release|x64
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Release|x64.Build.0 = Release|x64
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Release|x86.ActiveCfg = Release|Win32
+		{D4603006-D0F4-4A97-8732-4A9399978F60}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CA3B6E5-23C8-4C37-AC59-8ED42A3E9053}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		InsaneCpp\InsaneCpp.vcxitems*{70e5ab4b-868d-4b43-b161-9f6130a5018d}*SharedItemsImports = 9
-		InsaneCpp\InsaneCpp.vcxitems*{cce179b1-449c-4003-82cd-fe2f6ac05eee}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

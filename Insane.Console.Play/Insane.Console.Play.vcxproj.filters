@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Insane Header Files">
+      <UniqueIdentifier>{0456b030-69c8-4bad-a23c-f9166629184a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Insane Source Files">
+      <UniqueIdentifier>{3d39f6b5-d0c3-4c66-b236-5f4284dd1d60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\InsaneCpp\Src\Insane.cpp">
+      <Filter>Insane Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\InsaneCpp\Src\InsaneCore.cpp">
+      <Filter>Insane Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\InsaneCpp\Src\InsaneCryptography.cpp">
+      <Filter>Insane Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\InsaneCpp\Src\InsaneException.cpp">
+      <Filter>Insane Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\InsaneCpp\Src\InsanePreprocessor.cpp">
+      <Filter>Insane Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\InsaneCpp\Src\InsaneString.cpp">
+      <Filter>Insane Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\InsaneCpp\Src\InsaneTest.cpp">
+      <Filter>Insane Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\Insane.h">
+      <Filter>Insane Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneCore.h">
+      <Filter>Insane Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneCryptography.h">
+      <Filter>Insane Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneException.h">
+      <Filter>Insane Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsanePreprocessor.h">
+      <Filter>Insane Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneString.h">
+      <Filter>Insane Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneTest.h">
+      <Filter>Insane Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
