@@ -65,5 +65,13 @@
     <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneTest.h">
       <Filter>Insane Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Insane.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -436,6 +436,8 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);botan.lib;icudt.lib;icuin.lib;icuio.lib;icutest.lib;icutu.lib;icuuc.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\lib;$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\lib64;</AdditionalLibraryDirectories>
+      <Version>
+      </Version>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\bin64\*.dll" "$(SolutionDir)$(PlatformTarget)\$(Configuration)" /Y 
@@ -463,6 +465,8 @@ xcopy "$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\bin\*.dll
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);botan.lib;icudt.lib;icuin.lib;icuio.lib;icutest.lib;icutu.lib;icuuc.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\lib;$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\lib64;</AdditionalLibraryDirectories>
+      <Version>
+      </Version>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\bin64\*.dll" "$(SolutionDir)$(PlatformTarget)\$(Configuration)" /Y 
@@ -521,6 +525,8 @@ xcopy "$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\bin\*.dll
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);botan.lib;icudt.lib;icuin.lib;icuio.lib;icutest.lib;icutu.lib;icuuc.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\lib;$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\lib64;</AdditionalLibraryDirectories>
+      <Version>
+      </Version>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\bin64\*.dll" "$(SolutionDir)$(PlatformTarget)\$(Configuration)" /Y 
@@ -547,6 +553,8 @@ xcopy "$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\bin\*.dll
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);botan.lib;icudt.lib;icuin.lib;icuio.lib;icutest.lib;icutu.lib;icuuc.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\lib;$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\lib64;</AdditionalLibraryDirectories>
+      <Version>
+      </Version>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "$(SolutionDir)modules\ICU4c-73.1-Windows-x64-Release\bin64\*.dll" "$(SolutionDir)$(PlatformTarget)\$(Configuration)" /Y 
@@ -570,6 +578,10 @@ xcopy "$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\bin\*.dll
     <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsanePreprocessor.h" />
     <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneString.h" />
     <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneTest.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Insane.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
