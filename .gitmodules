@@ -10,3 +10,6 @@
 [submodule "modules/CommonCppIncludes"]
 	path = modules/CommonCppIncludes
 	url = https://github.com/Satancito/CommonCppIncludes.git
+[submodule "modules/Botan-2.19.3-Windows-x64-Debug"]
+	path = modules/Botan-2.19.3-Windows-x64-Debug
+	url = https://github.com/CommonCppLibs/Botan-2.19.3-Windows-x64-Debug.git
