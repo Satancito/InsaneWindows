@@ -598,6 +598,12 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	CryptoTests::Base32EncodingExtensionsTests(false);
 	CryptoTests::Base64EncodingExtensionsTests(false);
 
+	std::cout << "\x1b[38;2;255;0;0mTexto en color rojo\x1b[0m" << std::endl;
+	std::cout << "\x1b[48;2;0;255;0mTexto con fondo verde\x1b[0m" << std::endl;
+	std::cout << "\033[5;9;4mTexto con efecto blink, tachado y subrayado\033[0m" << std::endl;
+	//Console::Pause();
+	Console::PauseAny(false);
+	Console::WriteLine("bye bye!", ConsoleForeground::DARK_YELLOW, ConsoleBackground::GRAY, { ConsoleTextStyle::ITALIC , ConsoleTextStyle::RAPID_BLINK});
 	std::cin.get();
 }
 

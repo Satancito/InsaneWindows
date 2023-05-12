@@ -176,6 +176,11 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	CryptoTests::Base32EncodingExtensionsTests(false);
 	CryptoTests::Base64EncodingExtensionsTests(false);
 
+	std::cout << "\x1b[38;2;255;0;0mTexto en color rojo\x1b[0m" << std::endl;
+
+	// Secuencia ANSI para establecer el color RGB (0, 255, 0) como el color del fondo
+	std::cout << "\x1b[48;2;0;255;0mTexto con fondo verde\x1b[0m" << std::endl;
+
 	std::cin.get();
 }
 
