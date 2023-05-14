@@ -11,8 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Insane.Console.Import", "In
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{020453A0-BAFC-4270-9715-3B668B644CB0}"
 	ProjectSection(SolutionItems) = preProject
-		RebuildAll.ps1 = RebuildAll.ps1
 		GenerateReleases.ps1 = GenerateReleases.ps1
+		RebuildAll.ps1 = RebuildAll.ps1
+		X-PsCoreUpdate.ps1 = X-PsCoreUpdate.ps1
+		Z-PsCoreFxsConfig.json = Z-PsCoreFxsConfig.json
 	EndProjectSection
 EndProject
 Global

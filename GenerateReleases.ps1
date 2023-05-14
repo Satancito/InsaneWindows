@@ -16,6 +16,7 @@ function Copy-Files {
         xcopy "$($PSScriptRoot)\$Platform\$Configuration\Insane.pdb" "$($PSScriptRoot)\$folder\$Platform\$Configuration\bin\" /Y
         xcopy "$($PSScriptRoot)\$Platform\$Configuration\Insane.exp" "$($PSScriptRoot)\$folder\$Platform\$Configuration\bin\" /Y
         xcopy "$($PSScriptRoot)\$Platform\$Configuration\Insane.lib" "$($PSScriptRoot)\$folder\$Platform\$Configuration\lib\" /Y
+        xcopy "$($PSScriptRoot)\modules\InsaneCpp\Include\Insane\Insane*.h" "$($PSScriptRoot)\$folder\$Platform\$Configuration\Include\Insane\" /Y
     }
 $ErrorActionPreference = 'Stop' 
 & "$PSScriptRoot/RebuildAll.ps1"

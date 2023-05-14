@@ -14,10 +14,16 @@
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/document.h>
 
+	USING_NS_INSANE_CORE;
+	void printRgbColor(RgbColor rgb)
+	{
+		Console::WriteLine(rgb.GetR());
+		Console::WriteLine(rgb.GetG());
+		Console::WriteLine(rgb.GetB());
+	}
 int main()
 {
 
-	USING_NS_INSANE_CORE;
 	USING_NS_INSANE_STR;
 	USING_NS_INSANE_CRYPTO;
 	USING_NS_INSANE_EXCEPTION;
@@ -598,12 +604,17 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDSvwlyf4naYS6N75A8iE37t/OWKj14
 	CryptoTests::Base32EncodingExtensionsTests(false);
 	CryptoTests::Base64EncodingExtensionsTests(false);
 
-	std::cout << "\x1b[38;2;255;0;0mTexto en color rojo\x1b[0m" << std::endl;
-	std::cout << "\x1b[48;2;0;255;0mTexto con fondo verde\x1b[0m" << std::endl;
-	std::cout << "\033[5;9;4mTexto con efecto blink, tachado y subrayado\033[0m" << std::endl;
+	RgbColor foreground = RgbColor::Create<255, 0, 255>();
+	RgbColor background = RgbColor::Create(255, 255, 102);
+	RgbColor extra = RgbColor(background);
+	
+	Console::WriteLine("HelloWorld"s, foreground, background, { ConsoleTextStyle::RAPID_BLINK });
+	printRgbColor(foreground);
+	printRgbColor(background);
+
 	//Console::Pause();
 	Console::PauseAny(false);
-	Console::WriteLine("bye bye!", ConsoleForeground::DARK_YELLOW, ConsoleBackground::GRAY, { ConsoleTextStyle::ITALIC , ConsoleTextStyle::RAPID_BLINK});
+	Console::WriteLine("bye bye! CIAO. Adios. Chao.", ConsoleForeground::DARK_YELLOW, ConsoleBackground::GRAY, { ConsoleTextStyle::ITALIC , ConsoleTextStyle::RAPID_BLINK});
 	std::cin.get();
 }
 

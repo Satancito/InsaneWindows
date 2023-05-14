@@ -194,6 +194,7 @@ xcopy "$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\bin\*.dll
     <ClCompile Include="..\modules\InsaneCpp\Src\InsanePreprocessor.cpp" />
     <ClCompile Include="..\modules\InsaneCpp\Src\InsaneString.cpp" />
     <ClCompile Include="..\modules\InsaneCpp\Src\InsaneTest.cpp" />
+    <ClCompile Include="..\modules\InsaneCpp\Src\__InsaneCore.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +205,7 @@ xcopy "$(SolutionDir)modules\Botan-2.19.3-Windows-x64-$(Configuration)\bin\*.dll
     <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsanePreprocessor.h" />
     <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneString.h" />
     <ClInclude Include="..\modules\InsaneCpp\Include\Insane\InsaneTest.h" />
+    <ClInclude Include="..\modules\InsaneCpp\Include\Insane\__InsaneCore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
